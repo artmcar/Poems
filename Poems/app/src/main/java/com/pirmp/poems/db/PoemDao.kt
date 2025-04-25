@@ -15,10 +15,10 @@ interface PoemDao {
     suspend fun deletePoem(fields: DbFields)
 
     @Query("SELECT * FROM userpoem ORDER BY author ASC")
-    fun getPoemsByPoetName(): List<DbFields>
+    fun getPoemsByPoetName(): LiveData<List<DbFields>>
 
     @Query("SELECT * FROM userpoem ORDER BY poem ASC")
-    fun getPoemsByPoem(): List<DbFields>
+    fun getPoemsByPoem(): LiveData<List<DbFields>>
 
     @Query("SELECT * FROM userpoem ORDER BY id ASC")
     fun getAllPoems(): LiveData<List<DbFields>>
