@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/userPoemFragment"
-        android:name="com.pirmp.poems.fragments.UserPoemFragment"
+        android:name="com.pirmp.poems.fragments.list.UserPoemFragment"
         android:label="fragment_user_poem"
         tools:layout="@layout/fragment_user_poem" >
         <action

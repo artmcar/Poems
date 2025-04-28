@@ -9,7 +9,7 @@ import kotlinx.coroutines.launch
 
 class UserViewModel(application: Application): AndroidViewModel(application) {
 
-    private val getAllPoems: LiveData<List<DbFields>>
+    val getAllPoems: LiveData<List<DbFields>>
     private val repository: UserRepository
 
     init {
