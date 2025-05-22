@@ -11,7 +11,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.pirmp.poems.R
 import com.pirmp.poems.databinding.FragmentUserPoemBinding
-import com.pirmp.poems.db.UserViewModel
+import com.pirmp.poems.db.userpoems.UserViewModel
 
 class UserPoemFragment : Fragment() {
     private var _binding: FragmentUserPoemBinding? = null

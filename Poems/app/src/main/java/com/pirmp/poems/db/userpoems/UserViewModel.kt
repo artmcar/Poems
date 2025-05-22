@@ -1,9 +1,10 @@
-package com.pirmp.poems.db
+package com.pirmp.poems.db.userpoems
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
+import com.pirmp.poems.db.DbFields
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 

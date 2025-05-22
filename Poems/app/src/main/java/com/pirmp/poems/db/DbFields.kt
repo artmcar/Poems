@@ -14,4 +14,5 @@ data class DbFields(
     @ColumnInfo(name = "date") val date: String,
     @ColumnInfo(name = "place") val place: String,
     @ColumnInfo(name = "fav") val fav: Boolean
+
 )

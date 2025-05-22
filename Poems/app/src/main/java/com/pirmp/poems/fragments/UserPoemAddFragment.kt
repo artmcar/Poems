@@ -12,7 +12,7 @@ import androidx.navigation.fragment.findNavController
 import com.pirmp.poems.R
 import com.pirmp.poems.databinding.FragmentUserPoemAddBinding
 import com.pirmp.poems.db.DbFields
-import com.pirmp.poems.db.UserViewModel
+import com.pirmp.poems.db.userpoems.UserViewModel
 
 
 class UserPoemAddFragment : Fragment() {
@@ -41,13 +41,14 @@ class UserPoemAddFragment : Fragment() {
     private fun insertDataToDatabase() {
         val author = binding.editTextAuthor.text.toString()
         val poem = binding.editTextPoem.text.toString()
+        val content = binding.editTextContent.text.toString()
         val date = binding.editTextDate.text.toString()
         val place = binding.editTextPlace.text.toString()
-        val content = binding.editTextContent.text.toString()
 
-        if(inputCheck(author, poem, date, place, content)){
+
+        if(inputCheck(author, poem, content, date, place)){
             //Создаем объект класса DbFields
-            val userPoem = DbFields(0,author, poem, date, place, content, false)
+            val userPoem = DbFields(0,author, poem, content, date, place, false)
             //Добавляем стих в БД
             userViewModel.insertPoem(userPoem)
             Toast.makeText(requireContext(), "Poem successfully added!", Toast.LENGTH_LONG).show()
@@ -58,8 +59,8 @@ class UserPoemAddFragment : Fragment() {
         }
     }
 
-    private fun inputCheck(author: String, poem: String, date: String, place: String, content: String): Boolean{
-        return !(TextUtils.isEmpty(author) && TextUtils.isEmpty(poem) && TextUtils.isEmpty(date) && TextUtils.isEmpty(place) && TextUtils.isEmpty(content))
+    private fun inputCheck(author: String, poem: String, content: String, date: String, place: String): Boolean{
+        return !(TextUtils.isEmpty(author) || TextUtils.isEmpty(poem) || TextUtils.isEmpty(content)) || TextUtils.isEmpty(date) || TextUtils.isEmpty(place)
     }
 
 
