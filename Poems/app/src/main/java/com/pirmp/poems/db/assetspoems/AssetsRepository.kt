@@ -1,9 +1,9 @@
 package com.pirmp.poems.db.assetspoems
 
 import androidx.lifecycle.LiveData
-import com.pirmp.poems.db.DbFields
-import com.pirmp.poems.db.PoemDao
+import com.pirmp.poems.db.AssetsDbFields
+import com.pirmp.poems.db.AssetsPoemDao
 
-class AssetsRepository(private val assetsDao: PoemDao) {
-    val getAllPoems : LiveData<List<DbFields>> = assetsDao.getAllPoems()
+class AssetsRepository(private val assetsDao: AssetsPoemDao) {
+    val getAllPoems : LiveData<List<AssetsDbFields>> = assetsDao.getAllPoems()
 }

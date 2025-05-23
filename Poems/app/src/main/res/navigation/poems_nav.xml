@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/poems_nav"
-    app:startDestination="@id/userPoemFragment">
+    app:startDestination="@id/assetsPoemFragment">
 
     <fragment
         android:id="@+id/userPoemFragment"
@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_userPoemFragment_to_userPoemAddFragment"
             app:destination="@id/userPoemAddFragment" />
+        <action
+            android:id="@+id/action_userPoemFragment_to_assetsPoemFragment"
+            app:destination="@id/assetsPoemFragment" />
     </fragment>
     <fragment
         android:id="@+id/userPoemAddFragment"
@@ -21,6 +24,14 @@
         tools:layout="@layout/fragment_user_poem_add" >
         <action
             android:id="@+id/action_userPoemAddFragment_to_userPoemFragment"
+            app:destination="@id/userPoemFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/assetsPoemFragment"
+        android:name="com.pirmp.poems.fragments.list.AssetsPoemFragment"
+        android:label="AssetsPoemFragment" >
+        <action
+            android:id="@+id/action_assetsPoemFragment_to_userPoemFragment"
             app:destination="@id/userPoemFragment" />
     </fragment>
 </navigation>

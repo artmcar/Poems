@@ -4,12 +4,12 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.pirmp.poems.db.DbFields
-import com.pirmp.poems.db.PoemDao
+import com.pirmp.poems.db.AssetsDbFields
+import com.pirmp.poems.db.AssetsPoemDao
 
-@Database(entities = [DbFields::class], version = 1, exportSchema = false)
+@Database(entities = [AssetsDbFields::class], version = 1, exportSchema = false)
 abstract class AssetsDatabase : RoomDatabase(){
-    abstract fun assetsDao(): PoemDao
+    abstract fun assetsDao(): AssetsPoemDao
 
     //Часть паттерна singleton для создания и получения экземпляра базы данных с использованием Room
     companion object{
@@ -25,8 +25,8 @@ abstract class AssetsDatabase : RoomDatabase(){
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
                     AssetsDatabase::class.java,
-                    "assetspoem_database"
-                ).createFromAsset("assetspoem_database.db").build()
+                    "assetspoem"
+                ).createFromAsset("assetspoem.db").build()
                 INSTANCE = instance
                 return instance
             }

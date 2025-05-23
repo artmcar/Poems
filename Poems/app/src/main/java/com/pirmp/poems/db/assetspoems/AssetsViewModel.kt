@@ -3,11 +3,11 @@ package com.pirmp.poems.db.assetspoems
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
-import com.pirmp.poems.db.DbFields
+import com.pirmp.poems.db.AssetsDbFields
 
 class AssetsViewModel(application: Application): AndroidViewModel(application) {
 
-    val getAllPoems: LiveData<List<DbFields>>
+    val getAllPoems: LiveData<List<AssetsDbFields>>
     private val repository: AssetsRepository
 
     init {
