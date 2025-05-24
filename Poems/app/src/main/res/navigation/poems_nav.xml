@@ -13,9 +13,6 @@
         <action
             android:id="@+id/action_userPoemFragment_to_userPoemAddFragment"
             app:destination="@id/userPoemAddFragment" />
-        <action
-            android:id="@+id/action_userPoemFragment_to_assetsPoemFragment"
-            app:destination="@id/assetsPoemFragment" />
     </fragment>
     <fragment
         android:id="@+id/userPoemAddFragment"
@@ -29,9 +26,10 @@
     <fragment
         android:id="@+id/assetsPoemFragment"
         android:name="com.pirmp.poems.fragments.list.AssetsPoemFragment"
-        android:label="AssetsPoemFragment" >
-        <action
-            android:id="@+id/action_assetsPoemFragment_to_userPoemFragment"
-            app:destination="@id/userPoemFragment" />
-    </fragment>
+        android:label="AssetsPoemFragment" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.pirmp.poems.fragments.list.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
 </navigation>
