@@ -1,12 +1,16 @@
 package com.pirmp.poems.fragments.list
 
+import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.pirmp.poems.R
 import com.pirmp.poems.databinding.PoemItemBinding
 import com.pirmp.poems.db.DbFields
 
-class PoemAdapter: RecyclerView.Adapter<PoemAdapter.PoemViewHolder>() {
+class UserPoemAdapter: RecyclerView.Adapter<UserPoemAdapter.PoemViewHolder>() {
     private var poemList = emptyList<DbFields>()
 
     class PoemViewHolder(private val binding : PoemItemBinding): RecyclerView.ViewHolder(binding.root){
@@ -24,6 +28,12 @@ class PoemAdapter: RecyclerView.Adapter<PoemAdapter.PoemViewHolder>() {
 
     override fun onBindViewHolder(holder: PoemViewHolder, position: Int) {
         val currentItem = poemList[position]
+        holder.itemView.setOnClickListener {
+            Log.d("RRR","id=${poemList[position].id}")
+            val bundle = Bundle()
+            bundle.putInt("user_param", poemList[position].id)
+            holder.itemView.findNavController().navigate(R.id.action_userPoemFragment_to_readFragment, bundle)
+        }
         holder.bind(currentItem)
     }
 

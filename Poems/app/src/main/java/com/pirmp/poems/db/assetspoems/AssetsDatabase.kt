@@ -4,7 +4,6 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.pirmp.poems.db.AssetsDbFields
 import com.pirmp.poems.db.AssetsPoemDao
 
 @Database(entities = [AssetsDbFields::class], version = 1, exportSchema = false)

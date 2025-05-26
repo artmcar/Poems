@@ -25,7 +25,7 @@ class UserPoemFragment : Fragment() {
         _binding = FragmentUserPoemBinding.inflate(inflater, container, false)
 
         //RecyclerView
-        val adapter = PoemAdapter()
+        val adapter = UserPoemAdapter()
         val recyclerView = binding.userPoemRecyclerView
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())

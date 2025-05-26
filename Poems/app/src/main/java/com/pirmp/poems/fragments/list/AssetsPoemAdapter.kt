@@ -1,10 +1,14 @@
 package com.pirmp.poems.fragments.list
 
+import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.pirmp.poems.R
 import com.pirmp.poems.databinding.PoemItemBinding
-import com.pirmp.poems.db.AssetsDbFields
+import com.pirmp.poems.db.assetspoems.AssetsDbFields
 
 class AssetsPoemAdapter: RecyclerView.Adapter<AssetsPoemAdapter.PoemViewHolder>() {
     private var poemList = emptyList<AssetsDbFields>()
@@ -24,6 +28,12 @@ class AssetsPoemAdapter: RecyclerView.Adapter<AssetsPoemAdapter.PoemViewHolder>(
 
     override fun onBindViewHolder(holder: PoemViewHolder, position: Int) {
         val currentItem = poemList[position]
+        holder.itemView.setOnClickListener {
+            Log.d("RRR","id=${poemList[position].id}")
+            val bundle = Bundle()
+            bundle.putInt("poem_param", poemList[position].id)
+            holder.itemView.findNavController().navigate(R.id.action_assetsPoemFragment_to_readFragment, bundle)
+        }
         holder.bind(currentItem)
     }
 
