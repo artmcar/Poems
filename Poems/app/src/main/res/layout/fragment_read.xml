@@ -15,7 +15,6 @@
             android:id="@+id/poem_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Ночь, улица, фонарь, аптека…"
             android:textStyle="bold"
             android:gravity="center"
             android:textSize="34sp" />
@@ -23,28 +22,17 @@
             android:id="@+id/author_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Александр Блок"
             android:gravity="right"
             android:textSize="28sp"/>
         <TextView
             android:id="@+id/content_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="
-Ночь, улица, фонарь, аптека,\n
-Бессмысленный и тусклый свет.\n
-Живи еще хоть четверть века —\n
-Всё будет так. Исхода нет.\n
-Умрёшь — начнёшь опять сначала\n
-И повторится всё, как встарь:\n
-Ночь, ледяная рябь канала,\n
-Аптека, улица, фонарь."
             android:textSize="20sp"/>
         <TextView
             android:id="@+id/place_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Place"
             android:textStyle="italic"
             android:gravity="right"
             android:textSize="14sp"/>
@@ -52,7 +40,6 @@
             android:id="@+id/date_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="1912"
             android:textStyle="italic"
             android:gravity="right"
             android:textSize="14sp"/>

@@ -8,7 +8,7 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.pirmp.poems.R
 import com.pirmp.poems.databinding.PoemItemBinding
-import com.pirmp.poems.db.DbFields
+import com.pirmp.poems.db.userpoems.DbFields
 
 class UserPoemAdapter: RecyclerView.Adapter<UserPoemAdapter.PoemViewHolder>() {
     private var poemList = emptyList<DbFields>()

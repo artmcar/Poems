@@ -1,4 +1,4 @@
-package com.pirmp.poems.db
+package com.pirmp.poems.db.userpoems
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

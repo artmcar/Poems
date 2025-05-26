@@ -31,7 +31,7 @@ class AssetsPoemAdapter: RecyclerView.Adapter<AssetsPoemAdapter.PoemViewHolder>(
         holder.itemView.setOnClickListener {
             Log.d("RRR","id=${poemList[position].id}")
             val bundle = Bundle()
-            bundle.putInt("poem_param", poemList[position].id)
+            bundle.putInt("assets_param", poemList[position].id)
             holder.itemView.findNavController().navigate(R.id.action_assetsPoemFragment_to_readFragment, bundle)
         }
         holder.bind(currentItem)

@@ -9,4 +9,7 @@ import com.pirmp.poems.db.assetspoems.AssetsDbFields
 interface AssetsPoemDao {
     @Query("SELECT * FROM assetspoem ORDER BY id ASC")
     fun getAllPoems(): LiveData<List<AssetsDbFields>>
+
+    @Query("SELECT * FROM assetspoem WHERE id = :id LIMIT 1")
+    suspend fun getPoemById(id: Int): AssetsDbFields
 }

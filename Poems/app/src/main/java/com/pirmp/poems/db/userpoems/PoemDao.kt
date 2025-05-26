@@ -1,4 +1,4 @@
-package com.pirmp.poems.db
+package com.pirmp.poems.db.userpoems
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
@@ -22,4 +22,7 @@ interface PoemDao {
 
     @Query("SELECT * FROM userpoem ORDER BY id ASC")
     fun getAllPoems(): LiveData<List<DbFields>>
+
+    @Query("SELECT * FROM userpoem WHERE id = :id")
+    suspend fun getPoemById(id: Int): DbFields
 }

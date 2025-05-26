@@ -11,7 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.pirmp.poems.R
 import com.pirmp.poems.databinding.FragmentUserPoemAddBinding
-import com.pirmp.poems.db.DbFields
+import com.pirmp.poems.db.userpoems.DbFields
 import com.pirmp.poems.db.userpoems.UserViewModel
 
 

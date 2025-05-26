@@ -1,4 +1,4 @@
-package com.pirmp.poems.fragments.list
+package com.pirmp.poems.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
