@@ -29,13 +29,35 @@ class UserPoemAddFragment : Fragment() {
 
         userViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
 
-        binding.addButton.setOnClickListener {
+       /* binding.addButton.setOnClickListener {
             insertDataToDatabase()
-        }
-        binding.backButton.setOnClickListener{
+        }*/
+        /*binding.backButton.setOnClickListener{
+            requireActivity().onBackPressedDispatcher.onBackPressed()
+        }*/
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.toolbarUserPoemAdd.inflateMenu(R.menu.add_poem_menu)
+        binding.toolbarUserPoemAdd.setNavigationIcon(R.drawable.ic_back_arrow)
+        binding.toolbarUserPoemAdd.setNavigationOnClickListener { view ->
             requireActivity().onBackPressedDispatcher.onBackPressed()
         }
-        return binding.root
+        binding.toolbarUserPoemAdd.setOnMenuItemClickListener {
+            when (it.itemId) {
+                R.id.action_save_poem -> {
+                    insertDataToDatabase()
+                    true
+                }
+                /*R.id.action_back -> {
+                    requireActivity().onBackPressedDispatcher.onBackPressed()
+                    true
+                }*/
+                else -> false
+            }
+        }
     }
 
     private fun insertDataToDatabase() {
@@ -60,7 +82,7 @@ class UserPoemAddFragment : Fragment() {
     }
 
     private fun inputCheck(author: String, poem: String, content: String, date: String, place: String): Boolean{
-        return !(TextUtils.isEmpty(author) || TextUtils.isEmpty(poem) || TextUtils.isEmpty(content)) || TextUtils.isEmpty(date) || TextUtils.isEmpty(place)
+        return !(TextUtils.isEmpty(author) || TextUtils.isEmpty(poem) || TextUtils.isEmpty(content) || TextUtils.isEmpty(date) || TextUtils.isEmpty(place))
     }
 
 

@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">Poems</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="author">Author</string>
     <string name="title_of_poem">Title of poem</string>
@@ -9,4 +8,6 @@
     <string name="write_your_poem_here">Write your poem here</string>
     <string name="go_back">Go back</string>
     <string name="add">Add</string>
+    <string name="back">Back</string>
+    <string name="save">Save</string>
 </resources>

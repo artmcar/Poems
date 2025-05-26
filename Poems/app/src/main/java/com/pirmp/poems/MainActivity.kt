@@ -31,6 +31,8 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+
+
         /*
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
@@ -43,4 +45,5 @@ class MainActivity : AppCompatActivity() {
         }
         */
     }
+
 }
