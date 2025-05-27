@@ -25,4 +25,7 @@ interface PoemDao {
 
     @Query("SELECT * FROM userpoem WHERE id = :id")
     suspend fun getPoemById(id: Int): DbFields
+
+    @Query("UPDATE userpoem SET fav = :isFav WHERE id = :poemId")
+    suspend fun setFav(poemId: Int, isFav: Int)
 }

@@ -2,6 +2,7 @@ package com.pirmp.poems.fragments
 
 import android.os.Bundle
 import android.text.TextUtils
+import android.text.method.ScrollingMovementMethod
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -28,13 +29,7 @@ class UserPoemAddFragment : Fragment() {
         _binding = FragmentUserPoemAddBinding.inflate(inflater, container, false)
 
         userViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
-
-       /* binding.addButton.setOnClickListener {
-            insertDataToDatabase()
-        }*/
-        /*binding.backButton.setOnClickListener{
-            requireActivity().onBackPressedDispatcher.onBackPressed()
-        }*/
+        binding.motivationText.movementMethod = ScrollingMovementMethod()
         return binding.root
     }
 

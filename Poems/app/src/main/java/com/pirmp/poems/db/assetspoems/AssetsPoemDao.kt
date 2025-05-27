@@ -12,4 +12,7 @@ interface AssetsPoemDao {
 
     @Query("SELECT * FROM assetspoem WHERE id = :id LIMIT 1")
     suspend fun getPoemById(id: Int): AssetsDbFields
+
+    @Query("UPDATE assetspoem SET fav = :isFav WHERE id = :poemId")
+    suspend fun setFav(poemId: Int, isFav: Int)
 }

@@ -1,9 +1,11 @@
 package com.pirmp.poems.fragments.list
 
+import android.content.res.ColorStateList
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.pirmp.poems.R
@@ -17,7 +19,16 @@ class UserPoemAdapter: RecyclerView.Adapter<UserPoemAdapter.PoemViewHolder>() {
         fun bind(currentItem: DbFields){
             binding.poemTv.text = currentItem.poem
             binding.nameTv.text = currentItem.author
-            binding.favTv.text = currentItem.fav.toString()
+
+            val fav_btn_tint_color = if(currentItem.fav == true) {
+                ContextCompat.getColor(binding.root.context, R.color.fav_red)
+            } else {
+                ContextCompat.getColor(binding.root.context, R.color.fav_gray)
+            }
+            binding.favButton.imageTintList = ColorStateList.valueOf(fav_btn_tint_color)
+
+
+
         }
     }
 
@@ -35,6 +46,7 @@ class UserPoemAdapter: RecyclerView.Adapter<UserPoemAdapter.PoemViewHolder>() {
             holder.itemView.findNavController().navigate(R.id.action_userPoemFragment_to_readFragment, bundle)
         }
         holder.bind(currentItem)
+
     }
 
     override fun getItemCount(): Int {

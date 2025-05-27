@@ -17,7 +17,6 @@ class AssetsPoemAdapter: RecyclerView.Adapter<AssetsPoemAdapter.PoemViewHolder>(
         fun bind(currentItem: AssetsDbFields){
             binding.poemTv.text = currentItem.poem
             binding.nameTv.text = currentItem.author
-            binding.favTv.text = currentItem.fav.toString()
         }
     }
 
@@ -34,6 +33,9 @@ class AssetsPoemAdapter: RecyclerView.Adapter<AssetsPoemAdapter.PoemViewHolder>(
             bundle.putInt("assets_param", poemList[position].id)
             holder.itemView.findNavController().navigate(R.id.action_assetsPoemFragment_to_readFragment, bundle)
         }
+
+
+
         holder.bind(currentItem)
     }
 
