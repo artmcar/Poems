@@ -10,4 +10,8 @@ class UserRepository(private val userDao: PoemDao) {
     suspend fun insertPoem(fields: DbFields){
         userDao.insertPoem(fields)
     }
+
+    suspend fun updateField(fields: DbFields){
+        userDao.updateField(fields)
+    }
 }

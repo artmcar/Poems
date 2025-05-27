@@ -15,7 +15,7 @@ import com.pirmp.poems.db.userpoems.DbFields
 class UserPoemAdapter: RecyclerView.Adapter<UserPoemAdapter.PoemViewHolder>() {
     private var poemList = emptyList<DbFields>()
 
-    class PoemViewHolder(private val binding : PoemItemBinding): RecyclerView.ViewHolder(binding.root){
+    class PoemViewHolder(val binding : PoemItemBinding): RecyclerView.ViewHolder(binding.root){
         fun bind(currentItem: DbFields){
             binding.poemTv.text = currentItem.poem
             binding.nameTv.text = currentItem.author
@@ -45,7 +45,14 @@ class UserPoemAdapter: RecyclerView.Adapter<UserPoemAdapter.PoemViewHolder>() {
             bundle.putInt("user_param", poemList[position].id)
             holder.itemView.findNavController().navigate(R.id.action_userPoemFragment_to_readFragment, bundle)
         }
+
+        holder.binding.editButton.setOnClickListener {
+            val action = UserPoemFragmentDirections.actionUserPoemFragmentToUpdateFragment(currentItem)
+            holder.itemView.findNavController().navigate(action)
+        }
+
         holder.bind(currentItem)
+
 
     }
 

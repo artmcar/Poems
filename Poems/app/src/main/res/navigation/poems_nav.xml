@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_userPoemFragment_to_readFragment"
             app:destination="@id/readFragment" />
+        <action
+            android:id="@+id/action_userPoemFragment_to_updateFragment"
+            app:destination="@id/updateFragment" />
     </fragment>
     <fragment
         android:id="@+id/userPoemAddFragment"
@@ -50,5 +53,17 @@
         <action
             android:id="@+id/action_readFragment_to_assetsPoemFragment"
             app:destination="@id/assetsPoemFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateFragment"
+        android:name="com.pirmp.poems.fragments.UpdateFragment"
+        android:label="fragment_update"
+        tools:layout="@layout/fragment_update" >
+        <action
+            android:id="@+id/action_updateFragment_to_userPoemFragment"
+            app:destination="@id/userPoemFragment" />
+        <argument
+            android:name="currentDbFields"
+            app:argType="com.pirmp.poems.db.userpoems.DbFields" />
     </fragment>
 </navigation>

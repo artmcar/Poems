@@ -46,10 +46,6 @@ class UserPoemAddFragment : Fragment() {
                     insertDataToDatabase()
                     true
                 }
-                /*R.id.action_back -> {
-                    requireActivity().onBackPressedDispatcher.onBackPressed()
-                    true
-                }*/
                 else -> false
             }
         }

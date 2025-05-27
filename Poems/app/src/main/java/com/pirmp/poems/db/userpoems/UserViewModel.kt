@@ -24,4 +24,10 @@ class UserViewModel(application: Application): AndroidViewModel(application) {
         }
     }
 
+    fun updateField(fields: DbFields){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.updateField(fields)
+        }
+    }
+
 }

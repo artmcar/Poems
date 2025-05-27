@@ -5,6 +5,7 @@ import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
+import androidx.room.Update
 
 @Dao
 interface PoemDao {
@@ -13,6 +14,9 @@ interface PoemDao {
 
     @Delete
     suspend fun deletePoem(fields: DbFields)
+
+    @Update
+    suspend fun updateField(fields: DbFields)
 
     @Query("SELECT * FROM userpoem ORDER BY author ASC")
     fun getPoemsByPoetName(): LiveData<List<DbFields>>
