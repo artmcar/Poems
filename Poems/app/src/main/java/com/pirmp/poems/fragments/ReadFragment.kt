@@ -67,8 +67,8 @@ class ReadFragment : Fragment() {
         binding.poemTv.text = poem.poem
         binding.authorTv.text = poem.author
         binding.contentTv.text = poem.content
-        binding.placeTv.text = poem.place
-        binding.dateTv.text = poem.date
+        binding.placeTv.text = if (poem.place == "none") "" else poem.place
+        binding.dateTv.text = if (poem.date== "0000") "" else poem.date
     }
 
     private fun showAssetsPoem(poem: AssetsDbFields){
