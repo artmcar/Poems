@@ -18,6 +18,9 @@ interface PoemDao {
     @Update
     suspend fun updateField(fields: DbFields)
 
+    @Query("DELETE FROM userpoem")
+    suspend fun deleteAllPoems()
+
     @Query("SELECT * FROM userpoem ORDER BY author ASC")
     fun getPoemsByPoetName(): LiveData<List<DbFields>>
 

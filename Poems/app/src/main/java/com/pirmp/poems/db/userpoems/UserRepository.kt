@@ -14,4 +14,12 @@ class UserRepository(private val userDao: PoemDao) {
     suspend fun updateField(fields: DbFields){
         userDao.updateField(fields)
     }
+
+    suspend fun deletePoem(fields: DbFields){
+        userDao.deletePoem(fields)
+    }
+
+    suspend fun deleteAllUsers(){
+        userDao.deleteAllPoems()
+    }
 }

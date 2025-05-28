@@ -1,5 +1,6 @@
 package com.pirmp.poems.fragments.list
 
+
 import android.content.res.ColorStateList
 import android.os.Bundle
 import android.util.Log
@@ -12,7 +13,8 @@ import com.pirmp.poems.R
 import com.pirmp.poems.databinding.PoemItemBinding
 import com.pirmp.poems.db.userpoems.DbFields
 
-class UserPoemAdapter: RecyclerView.Adapter<UserPoemAdapter.PoemViewHolder>() {
+class UserPoemAdapter(private val onDeleteClicked: ((DbFields) -> Unit)? = null,
+                      private val onFavClicked: ((DbFields) -> Unit)? = null): RecyclerView.Adapter<UserPoemAdapter.PoemViewHolder>() {
     private var poemList = emptyList<DbFields>()
 
     class PoemViewHolder(val binding : PoemItemBinding): RecyclerView.ViewHolder(binding.root){
@@ -49,6 +51,13 @@ class UserPoemAdapter: RecyclerView.Adapter<UserPoemAdapter.PoemViewHolder>() {
         holder.binding.editButton.setOnClickListener {
             val action = UserPoemFragmentDirections.actionUserPoemFragmentToUpdateFragment(currentItem)
             holder.itemView.findNavController().navigate(action)
+        }
+
+        holder.binding.deleteButton.setOnClickListener{
+            onDeleteClicked?.invoke(currentItem)
+        }
+        holder.binding.favButton.setOnClickListener {
+            onFavClicked?.invoke(currentItem)
         }
 
         holder.bind(currentItem)

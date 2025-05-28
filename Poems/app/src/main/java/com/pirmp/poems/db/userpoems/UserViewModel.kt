@@ -30,4 +30,16 @@ class UserViewModel(application: Application): AndroidViewModel(application) {
         }
     }
 
+    fun deletePoem(fields: DbFields){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.deletePoem(fields)
+        }
+    }
+
+    fun deleteAllPoems(){
+        viewModelScope.launch(Dispatchers.IO){
+            repository.deleteAllUsers()
+        }
+    }
+
 }
