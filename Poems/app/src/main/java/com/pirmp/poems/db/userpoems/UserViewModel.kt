@@ -10,12 +10,22 @@ import kotlinx.coroutines.launch
 class UserViewModel(application: Application): AndroidViewModel(application) {
 
     val getAllPoems: LiveData<List<DbFields>>
+    val getPoemsByPoem: LiveData<List<DbFields>>
+    val getPoemsByPoetName: LiveData<List<DbFields>>
+    val getPoemsByFav: LiveData<List<DbFields>>
+    val getPoemsByDateOld: LiveData<List<DbFields>>
+    val getPoemsByDateNew: LiveData<List<DbFields>>
     private val repository: UserRepository
 
     init {
         val userDao  = UserDatabase.getDatabase(application).userDao()
         repository = UserRepository(userDao)
         getAllPoems = repository.getAllPoems
+        getPoemsByPoem = repository.getPoemsByPoem
+        getPoemsByPoetName = repository.getPoemsByPoetName
+        getPoemsByFav = repository.getPoemsByFav
+        getPoemsByDateOld = repository.getPoemsByDateOld
+        getPoemsByDateNew = repository.getPoemsByDateNew
     }
 
     fun insertPoem(fields: DbFields){

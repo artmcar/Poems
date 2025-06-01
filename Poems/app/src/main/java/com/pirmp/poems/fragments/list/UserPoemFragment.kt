@@ -21,6 +21,7 @@ class UserPoemFragment : Fragment() {
     private var _binding: FragmentUserPoemBinding? = null
     private val binding get() = _binding!!
     private lateinit var userViewModel: UserViewModel
+    private lateinit var adapter: UserPoemAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,7 +30,7 @@ class UserPoemFragment : Fragment() {
         _binding = FragmentUserPoemBinding.inflate(inflater, container, false)
 
         //RecyclerView
-        val adapter = UserPoemAdapter(
+        adapter = UserPoemAdapter(
             onDeleteClicked = { poem -> deletePoem(requireContext(), poem) },
             onFavClicked = { poem -> toggleFav(poem) }
         )
@@ -59,8 +60,57 @@ class UserPoemFragment : Fragment() {
                     deleteAllPoems()
                     true
                 }
+                R.id.action_sort_poem_by_alpha -> {
+                    getPoemsByPoem()
+                    true
+                }
+                R.id.action_sort_poet_by_alpha -> {
+                    getPoemsByPoetName()
+                    true
+                }
+                R.id.action_sort_poem_by_fav -> {
+                    getPoemsByFav()
+                    true
+                }
+                R.id.action_sort_poem_by_date_old -> {
+                    getPoemsByDateOld()
+                    true
+                }
+                R.id.action_sort_poem_by_date_new -> {
+                    getPoemsByDateNew()
+                    true
+                }
                 else -> false
             }
+        }
+    }
+
+    private fun getPoemsByDateNew() {
+        userViewModel.getPoemsByDateNew.observe(viewLifecycleOwner){ sorted ->
+            adapter.setData(sorted)
+        }    }
+
+    private fun getPoemsByDateOld() {
+        userViewModel.getPoemsByDateOld.observe(viewLifecycleOwner){ sorted ->
+            adapter.setData(sorted)
+        }
+    }
+
+    private fun getPoemsByFav() {
+        userViewModel.getPoemsByFav.observe(viewLifecycleOwner){ sorted ->
+            adapter.setData(sorted)
+        }
+    }
+
+    private fun getPoemsByPoetName() {
+        userViewModel.getPoemsByPoetName.observe(viewLifecycleOwner){ sorted ->
+            adapter.setData(sorted)
+        }
+    }
+
+    private fun getPoemsByPoem() {
+        userViewModel.getPoemsByPoem.observe(viewLifecycleOwner){ sorted ->
+            adapter.setData(sorted)
         }
     }
 

@@ -7,6 +7,16 @@ class UserRepository(private val userDao: PoemDao) {
 
     val getAllPoems : LiveData<List<DbFields>> = userDao.getAllPoems()
 
+    val getPoemsByPoem: LiveData<List<DbFields>> = userDao.getPoemsByPoem()
+
+    val getPoemsByPoetName: LiveData<List<DbFields>> = userDao.getPoemsByPoetName()
+
+    val getPoemsByFav: LiveData<List<DbFields>> = userDao.getPoemsByFav()
+
+    val getPoemsByDateOld: LiveData<List<DbFields>> = userDao.getPoemsByDateOld()
+
+    val getPoemsByDateNew: LiveData<List<DbFields>> = userDao.getPoemsByDateNew()
+
     suspend fun insertPoem(fields: DbFields){
         userDao.insertPoem(fields)
     }

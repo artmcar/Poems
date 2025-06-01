@@ -11,4 +11,8 @@
     <string name="back">Back</string>
     <string name="save">Save</string>
     <string name="delete_all">Delete all</string>
+    <string name="sort_poems">Sort by poems</string>
+    <string name="sort_poets">Sort by poets</string>
+    <string name="sort_poems_by_favourites">Sort poems by favourites</string>
+    <string name="sort_poems_by_date_oldest_first">Sort poems by date (oldest first)</string>
 </resources>

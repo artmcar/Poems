@@ -27,6 +27,15 @@ interface PoemDao {
     @Query("SELECT * FROM userpoem ORDER BY poem ASC")
     fun getPoemsByPoem(): LiveData<List<DbFields>>
 
+    @Query("SELECT * FROM userpoem ORDER BY fav DESC")
+    fun getPoemsByFav(): LiveData<List<DbFields>>
+
+    @Query("SELECT * FROM userpoem ORDER BY date ASC")
+    fun getPoemsByDateOld(): LiveData<List<DbFields>>
+
+    @Query("SELECT * FROM userpoem ORDER BY date DESC")
+    fun getPoemsByDateNew(): LiveData<List<DbFields>>
+
     @Query("SELECT * FROM userpoem ORDER BY id ASC")
     fun getAllPoems(): LiveData<List<DbFields>>
 
