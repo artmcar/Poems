@@ -3,7 +3,6 @@ package com.pirmp.poems.fragments.list
 
 import android.content.res.ColorStateList
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
@@ -42,7 +41,6 @@ class UserPoemAdapter(private val onDeleteClicked: ((DbFields) -> Unit)? = null,
     override fun onBindViewHolder(holder: PoemViewHolder, position: Int) {
         val currentItem = poemList[position]
         holder.itemView.setOnClickListener {
-            Log.d("RRR","id=${poemList[position].id}")
             val bundle = Bundle()
             bundle.putInt("user_param", poemList[position].id)
             holder.itemView.findNavController().navigate(R.id.action_userPoemFragment_to_readFragment, bundle)

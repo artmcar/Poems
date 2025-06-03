@@ -46,6 +46,7 @@ class UserPoemFragment : Fragment() {
         userViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
         userViewModel.getAllPoems.observe(viewLifecycleOwner, Observer{ user ->
             adapter.setData(user)
+            checkIfEmpty()
         })
 
         binding.floatingActionButton.setOnClickListener{
@@ -114,48 +115,56 @@ class UserPoemFragment : Fragment() {
     private fun getPoemsByBackPoetName() {
         userViewModel.getPoemsByBackPoetName.observe(viewLifecycleOwner){ sorted ->
             adapter.setData(sorted)
+            checkIfEmpty()
         }
     }
 
     private fun getPoemsByBackPoem() {
         userViewModel.getPoemsByBackPoem.observe(viewLifecycleOwner){ sorted ->
             adapter.setData(sorted)
+            checkIfEmpty()
         }
     }
 
     private fun getPoemsByBackFav() {
         userViewModel.getPoemsByBackFav.observe(viewLifecycleOwner){ sorted ->
             adapter.setData(sorted)
+            checkIfEmpty()
         }
     }
 
     private fun getPoemsByDateNew() {
         userViewModel.getPoemsByDateNew.observe(viewLifecycleOwner){ sorted ->
             adapter.setData(sorted)
+            checkIfEmpty()
         }
     }
 
     private fun getPoemsByDateOld() {
         userViewModel.getPoemsByDateOld.observe(viewLifecycleOwner){ sorted ->
             adapter.setData(sorted)
+            checkIfEmpty()
         }
     }
 
     private fun getPoemsByFav() {
         userViewModel.getPoemsByFav.observe(viewLifecycleOwner){ sorted ->
             adapter.setData(sorted)
+            checkIfEmpty()
         }
     }
 
     private fun getPoemsByPoetName() {
         userViewModel.getPoemsByPoetName.observe(viewLifecycleOwner){ sorted ->
             adapter.setData(sorted)
+            checkIfEmpty()
         }
     }
 
     private fun getPoemsByPoem() {
         userViewModel.getPoemsByPoem.observe(viewLifecycleOwner){ sorted ->
             adapter.setData(sorted)
+            checkIfEmpty()
         }
     }
 
@@ -193,6 +202,17 @@ class UserPoemFragment : Fragment() {
         Toast.makeText(requireContext(), "Favorite updated", Toast.LENGTH_SHORT).show()
     }
 
-
+    private fun checkIfEmpty(){
+        if(adapter.itemCount == 0){
+            binding.emptyImageview.visibility = View.VISIBLE
+            binding.emptyTextview.visibility = View.VISIBLE
+            binding.userPoemRecyclerView.visibility = View.GONE
+        }
+        else{
+            binding.emptyImageview.visibility = View.GONE
+            binding.emptyTextview.visibility = View.GONE
+            binding.userPoemRecyclerView.visibility = View.VISIBLE
+        }
+    }
 
 }

@@ -17,4 +17,5 @@
     <string name="sort_poems_by_date_oldest_first">Sort poems by date (oldest first)</string>
     <string name="sort_poems_by_date_new_first">Sort poems by date (new first)</string>
     <string name="write_your_own_poem">Write your own poem</string>
+    <string name="there_s_nothing_here_yet_click_the_button_and_start_creating">There\'s nothing here yet.\n Click the button and start creating.</string>
 </resources>
