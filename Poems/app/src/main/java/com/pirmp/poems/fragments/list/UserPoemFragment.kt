@@ -23,6 +23,10 @@ class UserPoemFragment : Fragment() {
     private lateinit var userViewModel: UserViewModel
     private lateinit var adapter: UserPoemAdapter
 
+    private var selectedPoem = 0
+    private var selectedPoet = 0
+    private var selectedFav = 0
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -61,15 +65,37 @@ class UserPoemFragment : Fragment() {
                     true
                 }
                 R.id.action_sort_poem_by_alpha -> {
-                    getPoemsByPoem()
+                    if (selectedPoem == 0){
+                        getPoemsByPoem()
+                        selectedPoem = 1
+                    }
+                    else{
+                        getPoemsByBackPoem()
+                        selectedPoem = 0
+                    }
+
                     true
                 }
                 R.id.action_sort_poet_by_alpha -> {
-                    getPoemsByPoetName()
+                    if (selectedPoet == 0){
+                        getPoemsByPoetName()
+                        selectedPoet = 1
+                    }
+                    else{
+                        getPoemsByBackPoetName()
+                        selectedPoet = 0
+                    }
                     true
                 }
                 R.id.action_sort_poem_by_fav -> {
-                    getPoemsByFav()
+                    if (selectedFav == 0) {
+                        getPoemsByFav()
+                        selectedFav = 1
+                    }
+                    else {
+                        getPoemsByBackFav()
+                        selectedFav = 0
+                    }
                     true
                 }
                 R.id.action_sort_poem_by_date_old -> {
@@ -85,10 +111,29 @@ class UserPoemFragment : Fragment() {
         }
     }
 
+    private fun getPoemsByBackPoetName() {
+        userViewModel.getPoemsByBackPoetName.observe(viewLifecycleOwner){ sorted ->
+            adapter.setData(sorted)
+        }
+    }
+
+    private fun getPoemsByBackPoem() {
+        userViewModel.getPoemsByBackPoem.observe(viewLifecycleOwner){ sorted ->
+            adapter.setData(sorted)
+        }
+    }
+
+    private fun getPoemsByBackFav() {
+        userViewModel.getPoemsByBackFav.observe(viewLifecycleOwner){ sorted ->
+            adapter.setData(sorted)
+        }
+    }
+
     private fun getPoemsByDateNew() {
         userViewModel.getPoemsByDateNew.observe(viewLifecycleOwner){ sorted ->
             adapter.setData(sorted)
-        }    }
+        }
+    }
 
     private fun getPoemsByDateOld() {
         userViewModel.getPoemsByDateOld.observe(viewLifecycleOwner){ sorted ->

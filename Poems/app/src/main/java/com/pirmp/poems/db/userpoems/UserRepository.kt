@@ -17,6 +17,12 @@ class UserRepository(private val userDao: PoemDao) {
 
     val getPoemsByDateNew: LiveData<List<DbFields>> = userDao.getPoemsByDateNew()
 
+    val getPoemsByBackFav: LiveData<List<DbFields>> = userDao.getPoemsByBackFav()
+
+    val getPoemsByBackPoem: LiveData<List<DbFields>> = userDao.getPoemsByBackPoem()
+
+    val getPoemsByBackPoetName: LiveData<List<DbFields>> = userDao.getPoemsByBackPoetName()
+
     suspend fun insertPoem(fields: DbFields){
         userDao.insertPoem(fields)
     }

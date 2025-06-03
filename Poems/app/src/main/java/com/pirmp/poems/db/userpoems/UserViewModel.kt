@@ -15,6 +15,9 @@ class UserViewModel(application: Application): AndroidViewModel(application) {
     val getPoemsByFav: LiveData<List<DbFields>>
     val getPoemsByDateOld: LiveData<List<DbFields>>
     val getPoemsByDateNew: LiveData<List<DbFields>>
+    val getPoemsByBackFav: LiveData<List<DbFields>>
+    val getPoemsByBackPoem: LiveData<List<DbFields>>
+    val getPoemsByBackPoetName: LiveData<List<DbFields>>
     private val repository: UserRepository
 
     init {
@@ -26,6 +29,9 @@ class UserViewModel(application: Application): AndroidViewModel(application) {
         getPoemsByFav = repository.getPoemsByFav
         getPoemsByDateOld = repository.getPoemsByDateOld
         getPoemsByDateNew = repository.getPoemsByDateNew
+        getPoemsByBackFav = repository.getPoemsByBackFav
+        getPoemsByBackPoem = repository.getPoemsByBackPoem
+        getPoemsByBackPoetName = repository.getPoemsByBackPoetName
     }
 
     fun insertPoem(fields: DbFields){

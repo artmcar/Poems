@@ -15,4 +15,6 @@
     <string name="sort_poets">Sort by poets</string>
     <string name="sort_poems_by_favourites">Sort poems by favourites</string>
     <string name="sort_poems_by_date_oldest_first">Sort poems by date (oldest first)</string>
+    <string name="sort_poems_by_date_new_first">Sort poems by date (new first)</string>
+    <string name="write_your_own_poem">Write your own poem</string>
 </resources>
