@@ -18,8 +18,6 @@ interface AssetsPoemDao {
     @Query("SELECT * FROM assetspoem WHERE id = :id LIMIT 1")
     suspend fun getPoemById(id: Int): AssetsDbFields
 
-    @Query("UPDATE assetspoem SET fav = :isFav WHERE id = :poemId")
-    suspend fun setFav(poemId: Int, isFav: Int)
 
     @Query("SELECT * FROM assetspoem ORDER BY author ASC")
     fun getPoemsByPoetName(): LiveData<List<AssetsDbFields>>
@@ -44,4 +42,5 @@ interface AssetsPoemDao {
 
     @Query("SELECT * FROM assetspoem ORDER BY date DESC")
     fun getPoemsByDateNew(): LiveData<List<AssetsDbFields>>
+
 }

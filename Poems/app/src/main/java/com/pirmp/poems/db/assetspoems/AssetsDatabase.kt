@@ -6,7 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.pirmp.poems.db.AssetsPoemDao
 
-@Database(entities = [AssetsDbFields::class], version = 4, exportSchema = false)
+@Database(entities = [AssetsDbFields::class], version = 5, exportSchema = false)
 abstract class AssetsDatabase : RoomDatabase(){
     abstract fun assetsDao(): AssetsPoemDao
 
@@ -21,11 +21,20 @@ abstract class AssetsDatabase : RoomDatabase(){
                 return tempInstance
             }
             synchronized(this){
-                val instance = Room.databaseBuilder(
-                    context.applicationContext,
-                    AssetsDatabase::class.java,
-                    "assetspoem"
-                ).createFromAsset("assetspoem.db").fallbackToDestructiveMigration().build()
+                val dbFile = context.getDatabasePath("assetspoem")
+
+                val builder = if (!dbFile.exists()){
+                    Room.databaseBuilder(context.applicationContext,
+                        AssetsDatabase::class.java, "assetspoem").
+                            createFromAsset("assetspoem.db")
+                }else{
+                    Room.databaseBuilder(
+                        context.applicationContext,
+                        AssetsDatabase::class.java, "assetspoem"
+                    )
+                }
+                val instance = builder.fallbackToDestructiveMigration().build()
+
                 INSTANCE = instance
                 return instance
             }

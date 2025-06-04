@@ -21,12 +21,16 @@ class UserPoemAdapter(private val onDeleteClicked: ((DbFields) -> Unit)? = null,
             binding.poemTv.text = currentItem.poem
             binding.nameTv.text = currentItem.author
 
+            val icon_tint = ContextCompat.getColor(binding.root.context, R.color.fav_gray)
+
             val fav_btn_tint_color = if(currentItem.fav == true) {
                 ContextCompat.getColor(binding.root.context, R.color.fav_red)
             } else {
                 ContextCompat.getColor(binding.root.context, R.color.fav_gray)
             }
             binding.favButton.imageTintList = ColorStateList.valueOf(fav_btn_tint_color)
+            binding.editButton.imageTintList = ColorStateList.valueOf(icon_tint)
+            binding.deleteButton.imageTintList = ColorStateList.valueOf(icon_tint)
 
 
 

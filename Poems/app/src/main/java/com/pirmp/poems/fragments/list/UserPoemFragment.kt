@@ -171,27 +171,31 @@ class UserPoemFragment : Fragment() {
 
     private fun deletePoem(context: Context, fields: DbFields) {
         val builder = AlertDialog.Builder(context)
-        builder.setPositiveButton("Yes"){_,_->
+        builder.setPositiveButton(R.string.allert_yes){_,_->
             userViewModel.deletePoem(fields)
-            Toast.makeText(context, "Successfully deleted: ${fields.poem}",
+            val message = context.getString(R.string.successfully_deleted)
+            Toast.makeText(context, "$message ${fields.poem}",
                 Toast.LENGTH_LONG).show()
         }
-        builder.setNegativeButton("No"){_,_->}
-        builder.setTitle("Delete ${fields.poem}?")
-        builder.setMessage("Are you sure you want to delete ${fields.poem}?")
+        builder.setNegativeButton(R.string.allert_no){_,_->}
+        val question_message = context.getString(R.string.delete_question)
+        builder.setTitle("$question_message ${fields.poem}?")
+        val message = context.getString(R.string.are_you_sure_to_delete)
+        builder.setMessage("$message ${fields.poem}?")
         builder.create().show()
     }
 
     private fun deleteAllPoems() {
         val builder = AlertDialog.Builder(context)
-        builder.setPositiveButton("Yes"){_,_->
+        builder.setPositiveButton(R.string.allert_yes){_,_->
             userViewModel.deleteAllPoems()
-            Toast.makeText(context, "Successfully deleted everything",
+            val message = context?.getString(R.string.successfully_deleted_everything)
+            Toast.makeText(context, message,
                 Toast.LENGTH_LONG).show()
         }
-        builder.setNegativeButton("No"){_,_->}
-        builder.setTitle("Delete everything?")
-        builder.setMessage("Are you sure you want to delete everything?")
+        builder.setNegativeButton(R.string.allert_no){_,_->}
+        builder.setTitle(R.string.delete_everything)
+        builder.setMessage(R.string.are_you_sure_to_delete_everything)
         builder.create().show()
     }
 
@@ -199,7 +203,7 @@ class UserPoemFragment : Fragment() {
         val newFavValue = !fields.fav
         val updatedField = fields.copy(fav = newFavValue)
         userViewModel.updateField(updatedField)
-        Toast.makeText(requireContext(), "Favorite updated", Toast.LENGTH_SHORT).show()
+        Toast.makeText(requireContext(), R.string.fav_updated, Toast.LENGTH_SHORT).show()
     }
 
     private fun checkIfEmpty(){

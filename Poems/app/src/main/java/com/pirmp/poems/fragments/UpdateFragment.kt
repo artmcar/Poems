@@ -14,6 +14,7 @@ import com.pirmp.poems.R
 import com.pirmp.poems.databinding.FragmentUpdateBinding
 import com.pirmp.poems.db.userpoems.DbFields
 import com.pirmp.poems.db.userpoems.UserViewModel
+import java.util.Calendar
 
 
 class UpdateFragment : Fragment() {
@@ -29,8 +30,18 @@ class UpdateFragment : Fragment() {
         _binding = FragmentUpdateBinding.inflate(inflater, container, false)
         binding.updateEditTextAuthor.setText(args.currentDbFields.author)
         binding.updateEditTextPoem.setText(args.currentDbFields.poem)
-        binding.updateEditTextDate.setText(args.currentDbFields.date)
-        binding.updateEditTextPlace.setText(args.currentDbFields.place)
+        if(args.currentDbFields.date == 9999){
+            binding.updateEditTextDate.setText("")
+        }
+        else{
+            binding.updateEditTextDate.setText(args.currentDbFields.date.toString())
+        }
+        if (args.currentDbFields.place == "none"){
+            binding.updateEditTextPlace.setText("")
+        }
+        else{
+            binding.updateEditTextPlace.setText(args.currentDbFields.place)
+        }
         binding.updateEditTextContent.setText(args.currentDbFields.content)
 
         mUserViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
@@ -59,21 +70,50 @@ class UpdateFragment : Fragment() {
         val author = binding.updateEditTextAuthor.text.toString()
         val poem = binding.updateEditTextPoem.text.toString()
         val content = binding.updateEditTextContent.text.toString()
-        val date = binding.updateEditTextDate.text.toString()
-        val place = binding.updateEditTextPlace.text.toString()
+        var date = binding.updateEditTextDate.text.toString().toIntOrNull()
+        var place = binding.updateEditTextPlace.text.toString()
 
-        if (inputCheck(author, poem, content, date, place)){
-            val updatedFields = DbFields(args.currentDbFields.id, author, poem, content, date, place, false)
-            mUserViewModel.updateField(updatedFields)
-            Toast.makeText(requireContext(), "Successfully updated", Toast.LENGTH_LONG).show()
-            findNavController().navigate(R.id.action_updateFragment_to_userPoemFragment)
-        }else{
-            Toast.makeText(requireContext(), "Smth went wrong! Probably all fields are not filled in", Toast.LENGTH_LONG).show()
+        val calendar = Calendar.getInstance().get(Calendar.YEAR)
+
+
+
+        if (date == null){
+            if(inputCheck(author, poem, content)){
+                if (TextUtils.isEmpty(place)){
+                    place = "none"
+                }
+                date = 9999
+                val updatedFields = DbFields(args.currentDbFields.id, author, poem, content, date, place, false)
+                mUserViewModel.updateField(updatedFields)
+                Toast.makeText(requireContext(), R.string.successfully_updated, Toast.LENGTH_LONG).show()
+                findNavController().navigate(R.id.action_updateFragment_to_userPoemFragment)
+            }else{
+                Toast.makeText(requireContext(), R.string.fields_not_fill, Toast.LENGTH_LONG).show()
+            }
         }
+        else{
+            if (date > calendar){
+                Toast.makeText(requireContext(), R.string.wrong_date, Toast.LENGTH_LONG).show()
+            }
+            else{
+                if(inputCheck(author, poem, content)){
+                    if (TextUtils.isEmpty(place)){
+                        place = "none"
+                    }
+                    val updatedFields = DbFields(args.currentDbFields.id, author, poem, content, date, place,  args.currentDbFields.fav)
+                    mUserViewModel.updateField(updatedFields)
+                    Toast.makeText(requireContext(), R.string.successfully_updated, Toast.LENGTH_LONG).show()
+                    findNavController().navigate(R.id.action_updateFragment_to_userPoemFragment)
+                }else{
+                    Toast.makeText(requireContext(), R.string.fields_not_fill, Toast.LENGTH_LONG).show()
+                }
+            }
+        }
+
     }
 
-    private fun inputCheck(author: String, poem: String, content: String, date: String, place: String): Boolean{
-        return !(TextUtils.isEmpty(author) || TextUtils.isEmpty(poem) || TextUtils.isEmpty(content) || TextUtils.isEmpty(date) || TextUtils.isEmpty(place))
+    private fun inputCheck(author: String, poem: String, content: String): Boolean{
+        return !(TextUtils.isEmpty(author) || TextUtils.isEmpty(poem) || TextUtils.isEmpty(content))
     }
 
 }

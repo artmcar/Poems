@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="author">Автор</string>
+    <string name="title_of_poem">Название стихотворения</string>
+    <string name="year_of_writing">Год написания</string>
+    <string name="place_of_writing">Место написания</string>
+    <string name="write_your_poem_here">Напишите ваше стихотворение здесь</string>
+    <string name="go_back">Вернуться назад</string>
+    <string name="add">Добавить</string>
+    <string name="back">Назад</string>
+    <string name="save">Сохранить</string>
+    <string name="delete_all">Удалить всё</string>
+    <string name="sort_poems">Отсортировать по стихотворениям</string>
+    <string name="sort_poets">Отсортировать по авторам</string>
+    <string name="sort_poems_by_favourites">Отсортировать по избранным</string>
+    <string name="sort_poems_by_date_oldest_first">Отсортировать по дате (сначала старые)</string>
+    <string name="sort_poems_by_date_new_first">Отсортировать по дате (сначала новые)</string>
+    <string name="write_your_own_poem">Напиши свой стих</string>
+    <string name="there_s_nothing_here_yet_click_the_button_and_start_creating">Здесь пока пусто. Нажми на кнопку и начни создавать</string>
+    <string name="customise_everything_for_you">Настрой всё под себя</string>
+    <string name="choose_background_colour">Выбери цвет фона</string>
+    <string name="choose_text_size">Выбери размер текста</string>
+    <string name="aa">Аа</string>
+    <string name="poems">Стихотворения</string>
+    <string name="write">Написать</string>
+    <string name="settings">Настройки</string>
+    <string name="fav_updated">Избранные обновлены</string>
+    <string name="successfully_deleted">Успешно удалено:</string>
+    <string name="are_you_sure_to_delete">Вы уверены, что хотите удалить</string>
+    <string name="successfully_deleted_everything">Все стихотворения успешно удалены</string>
+    <string name="allert_yes">Да</string>
+    <string name="allert_no">Нет</string>
+    <string name="delete_everything">Удалить всё?</string>
+    <string name="are_you_sure_to_delete_everything">Вы уверены, что хотите удалить всё?</string>
+    <string name="delete_question">Удалить</string>
+    <string name="successfully_updated">Стихотворение успешно обновлено</string>
+    <string name="fields_not_fill">Что-то пошло не так! Возможно не все поля заполнены</string>
+    <string name="wrong_date">Похоже, что вы из будущего! Измените дату</string>
+    <string name="poem_added">Стихотворение успешно добавлено!</string>
+
+    <string-array name="select_color">
+        <item>Сигнальный чёрный</item>
+        <item>Средний Персидский синий</item>
+        <item>Антрацитово-серый</item>
+        <item>Светло-песочный</item>
+        <item>Серебряный</item>
+        <item>Очень светлый жёлто-зелёный</item>
+        <item>Морской зелёный Крайола</item>
+        <item>Кремово-жёлтый</item>
+        <item>Медовая роса</item>
+        <item>Просто белый</item>
+    </string-array>
+
+    <string-array name="motivation">
+        <item>Просто сделай это</item>
+        <item>«Успех — не окончателен, неудачи — не фатальны, значение имеет лишь мужество продолжать.» — Уинстон Черчилль</item>
+        <item>«Либо ты управляешь днём, либо день управляет тобой.» — Джим Рон.</item>
+        <item>Сегодня хороший день</item>
+        <item>Да...</item>
+        <item>«В трех словах я могу изложить всё, что я узнал о жизни: она продолжается». — Роберт Фрост</item>
+        <item>«Будь собой, все остальные роли уже заняты». — Оскар Уайльд</item>
+        <item>«Неважно, как медленно вы идете, главное, чтобы вы не останавливались». — Конфуций</item>
+        <item>«Не знаешь, как поступить, поступи как знаешь». — Джейсон Стейтем</item>
+    </string-array>
+</resources>

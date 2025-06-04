@@ -6,7 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 
 
-@Database(entities = [DbFields::class], version = 1, exportSchema = false)
+@Database(entities = [DbFields::class], version = 2, exportSchema = false)
 abstract class UserDatabase : RoomDatabase(){
     abstract fun userDao(): PoemDao
 
@@ -25,7 +25,7 @@ abstract class UserDatabase : RoomDatabase(){
                     context.applicationContext,
                     UserDatabase::class.java,
                     "userpoem_database"
-                ).build()
+                ).fallbackToDestructiveMigration().build()
                 INSTANCE = instance
                 return instance
             }

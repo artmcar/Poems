@@ -10,7 +10,7 @@ data class AssetsDbFields(
     @ColumnInfo(name = "author") val author: String,
     @ColumnInfo(name = "poem") val poem: String,
     @ColumnInfo(name = "content") val content: String,
-    @ColumnInfo(name = "date") val date: String,
+    @ColumnInfo(name = "date") val date: Int,
     @ColumnInfo(name = "place") val place: String,
     @ColumnInfo(name = "fav") val fav: Boolean
 

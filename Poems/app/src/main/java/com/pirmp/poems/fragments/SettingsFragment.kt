@@ -55,6 +55,9 @@ class SettingsFragment : Fragment() {
                     4 -> 3.0f
                     5 -> 3.5f
                     6 -> 4.0f
+                    7 -> 0.25f
+                    8 -> 0.50f
+                    9 -> 0.75f
                     else -> 1.0f
                 }
                 val standard_size = 20f

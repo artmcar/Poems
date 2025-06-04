@@ -3,7 +3,6 @@ package com.pirmp.poems.fragments.list
 
 import android.content.res.ColorStateList
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
@@ -39,7 +38,6 @@ class AssetsPoemAdapter(private val onFavClicked: ((AssetsDbFields) -> Unit)? = 
     override fun onBindViewHolder(holder: PoemViewHolder, position: Int) {
         val currentItem = poemList[position]
         holder.itemView.setOnClickListener {
-            Log.d("RRR","id=${poemList[position].id}")
             val bundle = Bundle()
             bundle.putInt("assets_param", poemList[position].id)
             holder.itemView.findNavController().navigate(R.id.action_assetsPoemFragment_to_readFragment, bundle)

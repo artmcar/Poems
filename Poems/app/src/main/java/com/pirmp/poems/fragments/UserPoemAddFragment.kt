@@ -15,6 +15,7 @@ import com.pirmp.poems.R
 import com.pirmp.poems.databinding.FragmentUserPoemAddBinding
 import com.pirmp.poems.db.userpoems.DbFields
 import com.pirmp.poems.db.userpoems.UserViewModel
+import java.util.Calendar
 
 
 class UserPoemAddFragment : Fragment() {
@@ -73,29 +74,61 @@ class UserPoemAddFragment : Fragment() {
         motivation_prefs.edit().putInt("motivation_prefs",new_motivation_index).apply()
     }
 
+
     private fun insertDataToDatabase() {
         val author = binding.editTextAuthor.text.toString()
         val poem = binding.editTextPoem.text.toString()
         val content = binding.editTextContent.text.toString()
-        val date = binding.editTextDate.text.toString()
-        val place = binding.editTextPlace.text.toString()
+        var date = binding.editTextDate.text.toString().toIntOrNull()
+        var place = binding.editTextPlace.text.toString()
+
+        val calendar = Calendar.getInstance().get(Calendar.YEAR)
 
 
-        if(inputCheck(author, poem, content, date, place)){
-            //Создаем объект класса DbFields
-            val userPoem = DbFields(0,author, poem, content, date, place, false)
-            //Добавляем стих в БД
-            userViewModel.insertPoem(userPoem)
-            Toast.makeText(requireContext(), "Poem successfully added!", Toast.LENGTH_LONG).show()
-            //Возвращаемся назад
-            findNavController().navigate(R.id.action_userPoemAddFragment_to_userPoemFragment)
-        }else{
-            Toast.makeText(requireContext(), "Smth went wrong! Probably all fields are not filled in", Toast.LENGTH_LONG).show()
+        if (date == null){
+            if(inputCheck(author, poem, content)){
+                if (TextUtils.isEmpty(place)){
+                    place = "none"
+                }
+                date = 9999
+
+                //Создаем объект класса DbFields
+                val userPoem = DbFields(0,author, poem, content, date, place, false)
+                //Добавляем стих в БД
+                userViewModel.insertPoem(userPoem)
+                Toast.makeText(requireContext(), R.string.poem_added, Toast.LENGTH_LONG).show()
+                //Возвращаемся назад
+                findNavController().navigate(R.id.action_userPoemAddFragment_to_userPoemFragment)
+            }else{
+                Toast.makeText(requireContext(), R.string.fields_not_fill, Toast.LENGTH_LONG).show()
+            }
         }
+        else{
+            if (date > calendar){
+                Toast.makeText(requireContext(), R.string.wrong_date, Toast.LENGTH_LONG).show()
+            }
+            else{
+                if(inputCheck(author, poem, content)){
+                    if (TextUtils.isEmpty(place)){
+                        place = "none"
+                    }
+                    //Создаем объект класса DbFields
+                    val userPoem = DbFields(0,author, poem, content, date, place, false)
+                    //Добавляем стих в БД
+                    userViewModel.insertPoem(userPoem)
+                    Toast.makeText(requireContext(), R.string.poem_added, Toast.LENGTH_LONG).show()
+                    //Возвращаемся назад
+                    findNavController().navigate(R.id.action_userPoemAddFragment_to_userPoemFragment)
+                }else{
+                    Toast.makeText(requireContext(), R.string.fields_not_fill, Toast.LENGTH_LONG).show()
+                }
+            }
+        }
+
     }
 
-    private fun inputCheck(author: String, poem: String, content: String, date: String, place: String): Boolean{
-        return !(TextUtils.isEmpty(author) || TextUtils.isEmpty(poem) || TextUtils.isEmpty(content) || TextUtils.isEmpty(date) || TextUtils.isEmpty(place))
+    private fun inputCheck(author: String, poem: String, content: String): Boolean{
+        return !(TextUtils.isEmpty(author) || TextUtils.isEmpty(poem) || TextUtils.isEmpty(content))
     }
 
 

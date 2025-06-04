@@ -2,7 +2,7 @@
     <style name="Base.Theme.Poems" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="colorPrimary">@color/elements_primary_color</item>
         <item name="colorOnPrimary">@android:color/white</item>
-        <item name="bottomNavigationStyle">@color/elements_primary_color</item>
+        <item name="bottomNavigationStyle">@color/elements_secondary_color</item>
         <item name="android:navigationBarColor">@color/elements_primary_color</item>
         <item name="colorControlHighlight">@color/ripple_color</item>
         <item name="colorPrimaryVariant">@color/elements_primary_color</item>

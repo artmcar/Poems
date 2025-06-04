@@ -145,7 +145,7 @@ class AssetsPoemFragment : Fragment() {
         val newFavValue = !fields.fav
         val updatedField = fields.copy(fav = newFavValue)
         assetsViewModel.updateField(updatedField)
-        Toast.makeText(requireContext(), "Favorite updated", Toast.LENGTH_SHORT).show()
+        Toast.makeText(requireContext(), R.string.fav_updated, Toast.LENGTH_SHORT).show()
     }
 
 }

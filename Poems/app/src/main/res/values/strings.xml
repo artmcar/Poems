@@ -1,6 +1,5 @@
 <resources>
-    <string name="app_name">Poems</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="app_name" translatable="false">Poems</string>
     <string name="author">Author</string>
     <string name="title_of_poem">Title of poem</string>
     <string name="year_of_writing">Year of writing</string>
@@ -25,6 +24,21 @@
     <string name="poems">Poems</string>
     <string name="write">Write</string>
     <string name="settings">Settings</string>
+    <string name="fav_updated">Favorite updated</string>
+    <string name="successfully_deleted">Successfully deleted:</string>
+    <string name="are_you_sure_to_delete">Are you sure you want to delete</string>
+    <string name="successfully_deleted_everything">Successfully deleted everything</string>
+    <string name="allert_yes">Yes</string>
+    <string name="allert_no">No</string>
+    <string name="delete_everything">Delete everything?</string>
+    <string name="are_you_sure_to_delete_everything">Are you sure you want to delete everything?</string>
+    <string name="delete_question">Delete</string>
+    <string name="successfully_updated">Successfully updated</string>
+    <string name="fields_not_fill">"Something went wrong! Probably all fields are not filled in"</string>
+    <string name="wrong_date">It seems you\'re living in the future! Change the date</string>
+    <string name="poem_added">Poem successfully added!</string>
+
+
 
     <string-array name="select_color">
         <item>Signal black</item>
@@ -47,6 +61,9 @@
         <item>300%</item>
         <item>350%</item>
         <item>400%</item>
+        <item>25%</item>
+        <item>50%</item>
+        <item>75%</item>
     </string-array>
 
     <string-array name="motivation">
@@ -54,7 +71,7 @@
         <item>“Success is not final; failure is not fatal: It is the courage to continue that counts.” — Winston Churchill</item>
         <item>“Either you run the day or the day runs you.” — Jim Rohn</item>
         <item>Today is a good day</item>
-        <item>Yes</item>
+        <item>Yes...</item>
         <item>"In three words I can sum up everything I've learned about life: It goes on." — Robert Frost</item>
         <item>“Be yourself; everyone else is already taken.” — Oscar Wilde</item>
         <item>“It does not matter how slowly you go, as long as you do not stop.” — Confucius</item>
