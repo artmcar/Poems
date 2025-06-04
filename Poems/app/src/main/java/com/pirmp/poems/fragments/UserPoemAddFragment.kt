@@ -1,5 +1,6 @@
 package com.pirmp.poems.fragments
 
+import android.content.Context
 import android.os.Bundle
 import android.text.TextUtils
 import android.text.method.ScrollingMovementMethod
@@ -29,7 +30,10 @@ class UserPoemAddFragment : Fragment() {
         _binding = FragmentUserPoemAddBinding.inflate(inflater, container, false)
 
         userViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
-        binding.motivationText.movementMethod = ScrollingMovementMethod()
+
+        //Мотивационный текст
+        setMotivationText()
+
         return binding.root
     }
 
@@ -49,6 +53,24 @@ class UserPoemAddFragment : Fragment() {
                 else -> false
             }
         }
+    }
+
+    private fun setMotivationText(){
+        val motivation_prefs = requireContext().getSharedPreferences("motivation_prefs", Context.MODE_PRIVATE)
+        val last_motivation = motivation_prefs.getInt("motivation_prefs", 0)
+        val motivations = resources.getStringArray(R.array.motivation)
+        val newMotivation : String
+        var new_motivation_index = last_motivation + 1
+        if (new_motivation_index > motivations.size - 1){
+            new_motivation_index = 0
+            newMotivation = motivations[new_motivation_index]
+        }
+        else{
+            newMotivation = motivations[new_motivation_index]
+        }
+        binding.motivationText.movementMethod = ScrollingMovementMethod()
+        binding.motivationText.text = newMotivation
+        motivation_prefs.edit().putInt("motivation_prefs",new_motivation_index).apply()
     }
 
     private fun insertDataToDatabase() {

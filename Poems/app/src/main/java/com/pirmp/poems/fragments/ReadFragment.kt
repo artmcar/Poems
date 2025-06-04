@@ -1,12 +1,16 @@
 package com.pirmp.poems.fragments
 
+import android.content.Context
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
+import com.pirmp.poems.R
 import com.pirmp.poems.databinding.FragmentReadBinding
 import com.pirmp.poems.db.assetspoems.AssetsDatabase
 import com.pirmp.poems.db.assetspoems.AssetsDbFields
@@ -60,7 +64,45 @@ class ReadFragment : Fragment() {
             }
         }
 
+        //Выбранный цвет фона
+        setSelectedBackgroundColor()
+        //Выбранный размера текста
+        setSelectedTextSize()
+
         return binding.root
+    }
+
+    private fun setSelectedTextSize(){
+        val settings_prefs = requireContext().getSharedPreferences("settings_prefs", Context.MODE_PRIVATE)
+        val select_size = settings_prefs.getFloat("select_size", 1.0f)
+        binding.poemTv.textSize = 34f * select_size
+        binding.authorTv.textSize = 28f * select_size
+        binding.contentTv.textSize = 20f * select_size
+        binding.placeTv.textSize = 16f * select_size
+        binding.dateTv.textSize = 16f * select_size
+
+    }
+
+    private fun setSelectedBackgroundColor(){
+        val settings_prefs = requireContext().getSharedPreferences("settings_prefs", Context.MODE_PRIVATE)
+        val color_id = settings_prefs.getInt("background_color", R.color.just_white)
+        val dark_colors = setOf(
+            R.color.signal_black,
+            R.color.medium_persian_blue,
+            R.color.anthracite_grey
+        )
+        val text_color = if (color_id in dark_colors){
+            Color.WHITE
+        }
+        else{
+            Color.BLACK
+        }
+        binding.poemTv.setTextColor(text_color)
+        binding.authorTv.setTextColor(text_color)
+        binding.contentTv.setTextColor(text_color)
+        binding.placeTv.setTextColor(text_color)
+        binding.dateTv.setTextColor(text_color)
+        binding.root.setBackgroundColor(ContextCompat.getColor(requireContext(), color_id))
     }
 
     private fun showUserPoem(poem: DbFields){

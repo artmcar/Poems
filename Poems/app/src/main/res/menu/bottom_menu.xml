@@ -3,14 +3,14 @@
 
     <item
         android:id="@+id/assetsPoemFragment"
-        android:title="Poems"
+        android:title="@string/poems"
         android:icon="@drawable/ic_book" />
     <item
         android:id="@+id/userPoemFragment"
-        android:title="Write"
+        android:title="@string/write"
         android:icon="@drawable/ic_edit"/>
     <item
         android:id="@+id/settingsFragment"
-        android:title="Settings"
+        android:title="@string/settings"
         android:icon="@drawable/ic_settings" />
 </menu>

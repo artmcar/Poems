@@ -37,6 +37,7 @@
         android:clickable="true"
         android:focusable="true"
         android:tint="@color/white"
+        android:backgroundTint="@color/elements_secondary_color"
         android:src="@drawable/ic_add"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -60,7 +61,7 @@
         android:id="@+id/empty_imageview"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:src="@drawable/empty"
+        android:src="@drawable/empty_emoji"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

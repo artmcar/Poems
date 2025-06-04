@@ -2,7 +2,8 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
+    android:id="@+id/scrollview"
     tools:context=".fragments.ReadFragment">
 
     <LinearLayout
@@ -16,6 +17,7 @@
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:gravity="center"
+            android:textColor="@color/black"
             android:textSize="34sp" />
         <TextView
             android:id="@+id/author_tv"
@@ -23,6 +25,7 @@
             android:layout_height="wrap_content"
             android:gravity="end"
             android:paddingEnd="8dp"
+            android:textColor="@color/black"
             android:textSize="28sp"/>
         <TextView
             android:id="@+id/content_tv"
@@ -30,6 +33,7 @@
             android:layout_height="wrap_content"
             android:paddingTop="8dp"
             android:paddingStart="8dp"
+            android:textColor="@color/black"
             android:textSize="20sp"/>
         <TextView
             android:id="@+id/place_tv"
@@ -38,6 +42,7 @@
             android:textStyle="italic"
             android:gravity="end"
             android:paddingEnd="8dp"
+            android:textColor="@color/black"
             android:textSize="16sp"/>
         <TextView
             android:id="@+id/date_tv"
@@ -46,6 +51,7 @@
             android:textStyle="italic"
             android:gravity="end"
             android:paddingEnd="8dp"
+            android:textColor="@color/black"
             android:textSize="16sp"/>
 
     </LinearLayout>

@@ -18,4 +18,45 @@
     <string name="sort_poems_by_date_new_first">Sort poems by date (new first)</string>
     <string name="write_your_own_poem">Write your own poem</string>
     <string name="there_s_nothing_here_yet_click_the_button_and_start_creating">There\'s nothing here yet.\n Click the button and start creating.</string>
+    <string name="customise_everything_for_you">Customise everything for you</string>
+    <string name="choose_background_colour">Choose background colour</string>
+    <string name="choose_text_size">Choose text size</string>
+    <string name="aa">Aa</string>
+    <string name="poems">Poems</string>
+    <string name="write">Write</string>
+    <string name="settings">Settings</string>
+
+    <string-array name="select_color">
+        <item>Signal black</item>
+        <item>Medium Persian blue</item>
+        <item>Anthracite grey</item>
+        <item>Light sand</item>
+        <item>Silver</item>
+        <item>Very light yellow-green</item>
+        <item>Sea green Crayola</item>
+        <item>Creamy yellow</item>
+        <item>Honeydew</item>
+        <item>Just white</item>
+    </string-array>
+
+    <string-array name="select_size">
+        <item>100%</item>
+        <item>150%</item>
+        <item>200%</item>
+        <item>250%</item>
+        <item>300%</item>
+        <item>350%</item>
+        <item>400%</item>
+    </string-array>
+
+    <string-array name="motivation">
+        <item>Just do it</item>
+        <item>“Success is not final; failure is not fatal: It is the courage to continue that counts.” — Winston Churchill</item>
+        <item>“Either you run the day or the day runs you.” — Jim Rohn</item>
+        <item>Today is a good day</item>
+        <item>Yes</item>
+        <item>"In three words I can sum up everything I've learned about life: It goes on." — Robert Frost</item>
+        <item>“Be yourself; everyone else is already taken.” — Oscar Wilde</item>
+        <item>“It does not matter how slowly you go, as long as you do not stop.” — Confucius</item>
+    </string-array>
 </resources>
