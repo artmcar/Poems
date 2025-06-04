@@ -16,7 +16,7 @@
     <string name="sort_poems_by_date_oldest_first">Отсортировать по дате (сначала старые)</string>
     <string name="sort_poems_by_date_new_first">Отсортировать по дате (сначала новые)</string>
     <string name="write_your_own_poem">Напиши свой стих</string>
-    <string name="there_s_nothing_here_yet_click_the_button_and_start_creating">Здесь пока пусто. Нажми на кнопку и начни создавать</string>
+    <string name="there_s_nothing_here_yet_click_the_button_and_start_creating">Здесь пока что пусто.\n Нажми на кнопку и начни создавать</string>
     <string name="customise_everything_for_you">Настрой всё под себя</string>
     <string name="choose_background_colour">Выбери цвет фона</string>
     <string name="choose_text_size">Выбери размер текста</string>
